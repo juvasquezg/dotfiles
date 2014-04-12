@@ -122,3 +122,12 @@
 (setq ac-auto-start 2)
 ; case sensitivity is important when finding matches
 (setq ac-ignore-case nil)
+
+; ------------------
+; -- Yasnippet --
+; ------------------
+
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+(yas-global-mode 1)

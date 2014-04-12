@@ -107,7 +107,7 @@ is run).
   ;; Thus we need different settings here for different modes.  Default is
   ;; to have this variable NOT turned on.
   (if (or (equal js-prog "node_emacs")
-	  (equal js-prog "node"))
+	  (equal js-prog "node_repl"))
       (setq comint-process-echoes t)
     )
 
