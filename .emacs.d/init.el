@@ -27,6 +27,11 @@
 (setq show-trailing-whitespace t)
 (setq suggest-key-bindings t)
 (setq vc-follow-symlinks t)
+;; 4 spaces rather than tabs
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq c-basic-offset 4)
+(setq c-basic-indent 4)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
