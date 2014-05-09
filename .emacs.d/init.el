@@ -29,9 +29,10 @@
 (setq vc-follow-symlinks t)
 ;; 4 spaces rather than tabs
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq c-basic-offset 4)
-(setq c-basic-indent 4)
+(setq tab-width 2)
+(setq-default tab-width 2)
+(setq c-basic-offset 2)
+(setq c-basic-indent 2)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -50,8 +51,7 @@
  '(region ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
  '(secondary-selection ((((class color) (min-colors 8)) (:background "gray" :foreground "cyan"))))
  '(show-paren-match ((((class color) (background light)) (:background "black"))))
- '(vertical-border ((t nil)))
-)
+ '(vertical-border ((t nil))))
 
 ;; ------------
 ;; -- Macros --
@@ -77,8 +77,8 @@
 (load "js-config.el")
 (add-to-list 'load-path "~/.emacs.d/jade-mode") ;; github.com/brianc/jade-mode
 (require 'sws-mode)
-(require 'jade-mode)    
-(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
+(require 'jade-mode)
+(add-to-list 'auto-mode-alist '("\\.styl$" . stylus-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
 ;(add-to-list 'load-path "~/.emacs.d/python-mode") 
@@ -132,7 +132,13 @@
 ; -- Yasnippet --
 ; ------------------
 
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
-(require 'yasnippet)
-(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-(yas-global-mode 1)
+;(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+;(require 'yasnippet)
+;(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+;(yas-global-mode 1)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(js-indent-level 2))
