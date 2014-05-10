@@ -34,6 +34,17 @@
 (setq c-basic-offset 2)
 (setq c-basic-indent 2)
 
+;; remove tool bar
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+
+;; set color-theme
+(require 'color-theme)
+    (color-theme-initialize)
+    (color-theme-tm)
+
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -78,7 +89,7 @@
 (add-to-list 'load-path "~/.emacs.d/jade-mode") ;; github.com/brianc/jade-mode
 (require 'sws-mode)
 (require 'jade-mode)
-(add-to-list 'auto-mode-alist '("\\.styl$" . stylus-mode))
+(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
 ;(add-to-list 'load-path "~/.emacs.d/python-mode") 
@@ -135,10 +146,23 @@
 ;(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 ;(require 'yasnippet)
 ;(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-;(yas-global-mode 1)
+
+(add-to-list 'load-path "~/.emacs.d/elpa/yasnippet-0.8.0")
+(require 'yasnippet)
+(yas-global-mode 1)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(js-indent-level 2))
+
+; ------------------
+; -- cua-mode --
+; ------------------
+
+(cua-mode t)
+    (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
+    (transient-mark-mode 1) ;; No region when it is not highlighted
+    (setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
