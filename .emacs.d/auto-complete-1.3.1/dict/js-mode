@@ -114,6 +114,7 @@ prompt
 prototype
 ref
 releaseEvents
+require
 resizeBy
 resizeTo
 return
