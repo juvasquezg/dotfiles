@@ -33,6 +33,7 @@
 (setq-default tab-width 2)
 (setq c-basic-offset 2)
 (setq c-basic-indent 2)
+(setq debug-on-error t)
 
 ;; remove tool bar
 (tool-bar-mode -1)
@@ -81,6 +82,7 @@
 (global-set-key "\M-d" 'delete-word)
 (global-set-key "\M-h" 'backward-delete-word)
 (global-set-key "\M-u" 'zap-to-char)
+;(global-set-key "\C-:" 'auto-complete-nxml-popup-help)
 
 ;; ---------------------------
 ;; -- JS Mode configuration --
@@ -122,22 +124,31 @@
 ; try to automagically figure out indentation
 (setq py-smart-indentation t)
 
+;; -------------------
+;; -- Auto-Install   
+;;-------------------
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/auto-install"))
+(require 'auto-install)
+;(setq auto-install-directory "~/.emacs.d/auto-install/")
+;(auto-install-from-url "https://raw.github.com/aki2o/auto-complete-nxml/master/auto-complete-nxml.el")
+;(require 'auto-complete-nxml)
+
 ; ------------------
 ; -- Autocomplete --
 ; ------------------
 
 (add-to-list 'load-path "~/.emacs.d/auto-complete-1.3.1")
 (require 'auto-complete)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-1.3.1/dict")
 (require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-1.3.1/dict")
 (ac-config-default)
-; Use dictionaries by default
-(setq-default ac-sources (add-to-list 'ac-sources 'ac-source-dictionary))
+
 (global-auto-complete-mode t)
-; Start auto-completion after 2 characters of a word
+(require 'auto-complete-nxml)
+
+;; start completion when entered 2 characters
 (setq ac-auto-start 2)
-; case sensitivity is important when finding matches
-(setq ac-ignore-case nil)
+
 
 ; ------------------
 ; -- Yasnippet --
@@ -166,3 +177,20 @@
     (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
     (transient-mark-mode 1) ;; No region when it is not highlighted
     (setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
+
+;path to where nxml is
+(load "~/.emacs.d/nxml-mode/rng-auto.el")
+(setq auto-mode-alist
+      (cons '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\)\\'" . nxml-mode)
+     auto-mode-alist))
+(unify-8859-on-decoding-mode)
+ (setq magic-mode-alist
+    (cons '("<＼＼?xml " . nxml-mode)
+    magic-mode-alist))
+  (fset 'xml-mode 'nxml-mode)
+  (fset 'html-mode 'nxml-mode)
+
+(add-hook 'nxml-mode-hook
+          (lambda ()
+            (define-key nxml-mode-map
+              "\C-c\C-c" 'completion-at-point)))

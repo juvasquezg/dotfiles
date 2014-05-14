@@ -1,0 +1,27 @@
+ll
+ls
+ls -la
+cd ..
+me
+cd
+pwd
+touch block2.js
+ll
+ls
+pwd
+touch index.jade
+ls
+touch index.html
+cd ~
+pwd
+ls
+rm -rf calls.html~
+ls
+cd js/vendor/
+ls
+cd ..
+ls
+cd Dropbox/llamado-enfermeria_reload/
+ls
+me
+cd
