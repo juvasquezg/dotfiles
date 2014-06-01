@@ -36,9 +36,16 @@
 (setq debug-on-error t)
 
 ;; remove tool bar
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
+;(tool-bar-mode -1)
+;(menu-bar-mode -1)
+;(toggle-scroll-bar -1)
+;(scroll-bar-mode -1)
+
+(if (display-graphic-p)
+    (progn
+      (tool-bar-mode -1)
+      (menu-bar-mode -1)
+      (scroll-bar-mode -1)))
 
 ;; set color-theme
 (require 'color-theme)
@@ -94,13 +101,6 @@
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
-;(add-to-list 'load-path "~/.emacs.d/python-mode") 
-;(setq py-install-directory "~/.emacs.d/python-mode")
-;(require 'python-mode)
-;;(setq py-shell-name "ipython")
-;;resp.
-;;(setq py-shell-name "/usr/bin/ipython")
-
 ; -----------------
 ; -- python-mode --
 ; -----------------
@@ -154,10 +154,6 @@
 ; -- Yasnippet --
 ; ------------------
 
-;(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
-;(require 'yasnippet)
-;(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-
 (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet-0.8.0")
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -167,7 +163,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(js-indent-level 2))
+ '(js-indent-level 2)
+ '(make-backup-files nil))
 
 ; ------------------
 ; -- cua-mode --

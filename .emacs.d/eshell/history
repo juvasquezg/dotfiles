@@ -25,3 +25,10 @@ cd Dropbox/llamado-enfermeria_reload/
 ls
 me
 cd
+cd ..
+ls
+touch app.js
+ls
+touch package_old.json
+cd Escritorio/
+touch aph_actividades.txt
