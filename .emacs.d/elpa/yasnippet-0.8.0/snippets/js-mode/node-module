@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+#name : node-module
+# --
+// nodejs includes - requires
+/* ---------------- */
+// --  INCLUDES  --
+/* ---------------  */
+
+// related third party node_modules
+$0
+// standard core node_modules requires
+
+// node-modules specific requires
+
+
+/* ---------------*/
+// -- CONSTANTS --
+/* ---------------*/
+
+/* ---------------*/
+// -- GLOBALS -- 
+/* ---------------*/
+

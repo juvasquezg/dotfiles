@@ -32,3 +32,7 @@ ls
 touch package_old.json
 cd Escritorio/
 touch aph_actividades.txt
+cd Dropbox/BackendPro/NodeJs/guillebook/
+ls
+cd code/1-executing-a-file/
+touch my-web-server.js

@@ -17,7 +17,6 @@
 (require 'dired-x)
 (require 'compile)
 (ido-mode t)
-(menu-bar-mode -1)
 (normal-erase-is-backspace-mode 1)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
@@ -35,16 +34,10 @@
 (setq c-basic-indent 2)
 (setq debug-on-error t)
 
-;; remove tool bar
-;(tool-bar-mode -1)
-;(menu-bar-mode -1)
-;(toggle-scroll-bar -1)
-;(scroll-bar-mode -1)
-
 (if (display-graphic-p)
     (progn
       (tool-bar-mode -1)
-      (menu-bar-mode -1)
+      ;(menu-bar-mode -1)
       (scroll-bar-mode -1)))
 
 ;; set color-theme
@@ -108,6 +101,7 @@
 (add-to-list 'load-path py-install-directory)
 (require 'python-mode)
 
+
 ; use IPython
 (setq-default py-shell-name "ipython3")
 (setq-default py-which-bufname "IPython3")
@@ -125,13 +119,13 @@
 (setq py-smart-indentation t)
 
 ;; -------------------
-;; -- Auto-Install   
+;; -- Emacs Package    
 ;;-------------------
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/auto-install"))
-(require 'auto-install)
-;(setq auto-install-directory "~/.emacs.d/auto-install/")
-;(auto-install-from-url "https://raw.github.com/aki2o/auto-complete-nxml/master/auto-complete-nxml.el")
-;(require 'auto-complete-nxml)
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  )
 
 ; ------------------
 ; -- Autocomplete --
@@ -144,7 +138,7 @@
 (ac-config-default)
 
 (global-auto-complete-mode t)
-(require 'auto-complete-nxml)
+;(require 'auto-complete-nxml)
 
 ;; start completion when entered 2 characters
 (setq ac-auto-start 2)
@@ -175,19 +169,19 @@
     (transient-mark-mode 1) ;; No region when it is not highlighted
     (setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
 
-;path to where nxml is
-(load "~/.emacs.d/nxml-mode/rng-auto.el")
-(setq auto-mode-alist
-      (cons '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\)\\'" . nxml-mode)
-     auto-mode-alist))
-(unify-8859-on-decoding-mode)
- (setq magic-mode-alist
-    (cons '("<＼＼?xml " . nxml-mode)
-    magic-mode-alist))
-  (fset 'xml-mode 'nxml-mode)
-  (fset 'html-mode 'nxml-mode)
 
-(add-hook 'nxml-mode-hook
-          (lambda ()
-            (define-key nxml-mode-map
-              "\C-c\C-c" 'completion-at-point)))
+; ------------------
+; -- nxhtml-mode --
+; ------------------
+(load "~/.emacs.d/nxhtml/autostart.el")
+
+;; Workaround the annoying warnings:
+;; Warning (mumamo-per-buffer-local-vars):
+;; Already 'permanent-local t: buffer-file-name
+(when (and (>= emacs-major-version 24)
+           (>= emacs-minor-version 2))
+  (eval-after-load "mumamo"
+    '(setq mumamo-per-buffer-local-vars
+          (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
+
+
