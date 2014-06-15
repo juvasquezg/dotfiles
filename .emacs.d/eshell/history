@@ -36,3 +36,12 @@ cd Dropbox/BackendPro/NodeJs/guillebook/
 ls
 cd code/1-executing-a-file/
 touch my-web-server.js
+cd ..
+cd ..
+cd calls/
+cd ../..
+cd ../..
+cd views/admin/calls/
+ls
+touch details.jade
+ls

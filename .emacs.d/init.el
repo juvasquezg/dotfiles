@@ -37,14 +37,12 @@
 (if (display-graphic-p)
     (progn
       (tool-bar-mode -1)
-      ;(menu-bar-mode -1)
+      (menu-bar-mode -1)
       (scroll-bar-mode -1)))
 
 ;; set color-theme
-(require 'color-theme)
-    (color-theme-initialize)
-    (color-theme-tm)
-
+(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/themes")
+(load-theme 'hickey t)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -52,17 +50,17 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit autoface-default :strike-through nil :underline nil :slant normal :weight normal :height 120 :width normal :family "monaco"))))
- '(column-marker-1 ((t (:background "red"))))
- '(diff-added ((t (:foreground "cyan"))))
+ '(column-marker-1 ((t (:background "red"))) t)
+ '(diff-added ((t (:foreground "cyan"))) t)
  '(flymake-errline ((((class color) (background light)) (:background "Red"))))
  '(font-lock-comment-face ((((class color) (min-colors 8) (background light)) (:foreground "red"))))
- '(fundamental-mode-default ((t (:inherit default))))
+ '(fundamental-mode-default ((t (:inherit default))) t)
  '(highlight ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
  '(isearch ((((class color) (min-colors 8)) (:background "yellow" :foreground "black"))))
  '(linum ((t (:foreground "black" :weight bold))))
  '(region ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
  '(secondary-selection ((((class color) (min-colors 8)) (:background "gray" :foreground "cyan"))))
- '(show-paren-match ((((class color) (background light)) (:background "black"))))
+ '(show-paren-match ((((class color) (background light)) (:background "black"))) t)
  '(vertical-border ((t nil))))
 
 ;; ------------
@@ -157,6 +155,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("33c5a452a4095f7e4f6746b66f322ef6da0e770b76c0ed98a438e76c497040bb" "a774c5551bc56d7a9c362dca4d73a374582caedb110c201a09b410c0ebbb5e70" default)))
  '(js-indent-level 2)
  '(make-backup-files nil))
 
@@ -173,7 +172,12 @@
 ; ------------------
 ; -- nxhtml-mode --
 ; ------------------
-(load "~/.emacs.d/nxhtml/autostart.el")
+;; For django html
+(autoload 'django-html-mumamo-mode "~/.emacs.d/nxhtml/autostart.el")
+(setq auto-mode-alist
+(append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
+(setq mumamo-background-colors nil)
+(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
 
 ;; Workaround the annoying warnings:
 ;; Warning (mumamo-per-buffer-local-vars):
