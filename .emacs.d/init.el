@@ -33,7 +33,7 @@
 (setq c-basic-offset 2)
 (setq c-basic-indent 2)
 (setq debug-on-error t)
-
+(menu-bar-mode -1)
 (if (display-graphic-p)
     (progn
       (tool-bar-mode -1)
