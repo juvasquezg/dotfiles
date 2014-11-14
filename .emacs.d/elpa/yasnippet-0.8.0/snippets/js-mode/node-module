@@ -2,9 +2,9 @@
 #name : node-module
 # --
 // nodejs includes - requires
-/* ---------------- */
-// --  INCLUDES  --
-/* ---------------  */
+/**
+ *  INCLUDES
+ */
 
 // related third party node_modules
 $0
@@ -13,11 +13,11 @@ $0
 // node-modules specific requires
 
 
-/* ---------------*/
-// -- CONSTANTS --
-/* ---------------*/
+/**
+ * CONSTANTS
+ */
 
-/* ---------------*/
-// -- GLOBALS -- 
-/* ---------------*/
+/**
+ *  GLOBALS
+ */
 
