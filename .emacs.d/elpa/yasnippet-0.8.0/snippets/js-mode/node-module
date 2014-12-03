@@ -1,9 +1,9 @@
 # -*- mode: snippet -*-
 #name : node-module
 # --
-// nodejs includes - requires
+// // Node dependences
 /**
- *  INCLUDES
+ *  REQUIRES
  */
 
 // related third party node_modules
