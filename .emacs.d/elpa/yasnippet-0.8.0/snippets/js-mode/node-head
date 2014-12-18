@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
-#name : node-module
+#name : node-head
 # --
-/* jslint node: true */                                                                                                                               
+/* jslint node: true */
 'use strict'; 
 
 $0

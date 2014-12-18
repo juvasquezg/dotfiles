@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 #name : node-module
 # --
-/* jslint node: true */                                                                                                                               
+/* jslint node: true */
 'use strict'; 
 
 // // Node dependences
