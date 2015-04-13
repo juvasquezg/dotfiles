@@ -173,11 +173,12 @@
 ; -- nxhtml-mode --
 ; ------------------
 ;; For django html
-(autoload 'django-html-mumamo-mode "~/.emacs.d/nxhtml/autostart.el")
-(setq auto-mode-alist
-(append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
-(setq mumamo-background-colors nil)
-(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
+(load "~/.emacs.d/nxhtml/autostart.el")
+;(autoload 'django-html-mumamo-mode "~/.emacs.d/nxhtml/autostart.el")
+;(setq auto-mode-alist
+;(append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
+;(setq mumamo-background-colors nil)
+;(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
 
 ;; Workaround the annoying warnings:
 ;; Warning (mumamo-per-buffer-local-vars):

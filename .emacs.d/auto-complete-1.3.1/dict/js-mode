@@ -134,6 +134,7 @@ switch
 taint
 this
 toString
+toUpperCase
 toolbar
 top
 typeof
@@ -149,3 +150,4 @@ window
 with
 node-module
 node-head
+pipe
