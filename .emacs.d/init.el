@@ -33,6 +33,8 @@
 (setq c-basic-offset 2)
 (setq c-basic-indent 2)
 (setq debug-on-error t)
+(setq auto-save-default nil)
+(setq make-backup-files nil)
 (menu-bar-mode -1)
 (if (display-graphic-p)
     (progn
@@ -157,7 +159,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes (quote ("33c5a452a4095f7e4f6746b66f322ef6da0e770b76c0ed98a438e76c497040bb" "a774c5551bc56d7a9c362dca4d73a374582caedb110c201a09b410c0ebbb5e70" default)))
  '(js-indent-level 2)
- '(make-backup-files nil))
+ '(setq make-backup-files nil))
 
 ; ------------------
 ; -- cua-mode --
@@ -190,3 +192,5 @@
           (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
 
 
+(add-to-list 'load-path "~/.emacs.d/lisp")
+(load "editorconfig")

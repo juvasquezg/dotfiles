@@ -4,23 +4,10 @@
 /* jslint node: true */
 'use strict'; 
 
-// // Node dependences
+// Node dependences
 /**
  *  REQUIRES
  */
 
-// related third party node_modules
 $0
-// standard core node_modules requires
-
-// node-modules specific requires
-
-
-/**
- * CONSTANTS
- */
-
-/**
- *  GLOBALS
- */
 
