@@ -150,4 +150,7 @@ window
 with
 node-module
 node-head
+stdin
+stdout
 pipe
+createReadStream
